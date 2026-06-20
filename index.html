@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASHDRIP — Own The Standard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">ASH<span>DRIP</span></a>
+    <nav class="nav-links">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#mindset">The Mindset</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 7V6a3 3 0 016 0v1M3.5 7h13l-1 13h-11l-1-13z"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-links-mobile" id="navLinksMobile">
+    <a href="#catalogue">Catalogue</a>
+    <a href="#mindset">The Mindset</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg-text">DRIP</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Discipline. Grip. Destiny. — Est. 2024</p>
+    <h1 class="hero-title">OWN THE<br>STANDARD</h1>
+    <p class="hero-sub">ASHDRIP isn't just a brand. It's a mindset. Built for those who move different. Made for those who leave a mark.</p>
+    <a href="#catalogue" class="btn-primary">Shop The Drop</a>
+  </div>
+</section>
+
+<!-- ============ MINDSET STRIP ============ -->
+<section class="mindset" id="mindset">
+  <div class="mindset-grid">
+    <div class="mindset-item">
+      <span class="mindset-icon">●</span>
+      <p>Focused</p>
+    </div>
+    <div class="mindset-item">
+      <span class="mindset-icon">▲</span>
+      <p>Relentless</p>
+    </div>
+    <div class="mindset-item">
+      <span class="mindset-icon">■</span>
+      <p>Authentic</p>
+    </div>
+    <div class="mindset-item">
+      <span class="mindset-icon">◆</span>
+      <p>Different</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOGUE ============ -->
+<section class="catalogue" id="catalogue">
+  <div class="section-head">
+    <h2>THE CATALOGUE</h2>
+    <p>Limited stock. Once it's gone, it's gone.</p>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <!-- Products are injected by JS from PRODUCTS array (placeholder for Google Sheet) -->
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">ASH<span>DRIP</span></p>
+      <p class="footer-tag">Discipline fuels passion. Passion creates legacy.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://instagram.com/ashdrip.official" target="_blank">@ashdrip.official on Instagram</a>
+      <a href="https://tiktok.com/@ashdrip.official" target="_blank">@ashdrip.official on TikTok</a>
+      <a href="#" id="waContact">WhatsApp Us</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 ASHDRIP. Worldwide Movement.</p>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>YOUR BAG</h3>
+    <button id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your bag is empty. Time to fix that.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">₦0</span>
+    </div>
+    <button class="btn-checkout" id="checkoutBtn">Checkout via WhatsApp</button>
+    <p class="cart-note">You'll confirm size, delivery & payment with us directly on WhatsApp.</p>
+  </div>
+</aside>
+
+<!-- ============ SIZE MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="productModal"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase.js"></script>
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

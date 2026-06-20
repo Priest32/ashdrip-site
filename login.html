@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASHDRIP Admin Login</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    margin:0;
+}
+
+.login-box{
+    width:320px;
+    padding:30px;
+    background:#1a1a1a;
+    border:1px solid #2a2a2a;
+    border-radius:6px;
+}
+
+h1{
+    font-size:20px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:14px;
+    background:#1c1c1c;
+    color:white;
+    border:1px solid #333;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    background:red;
+    color:white;
+    border:none;
+    padding:12px;
+    cursor:pointer;
+}
+
+button:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+}
+
+.error{
+    color:#ff6b6b;
+    font-size:13px;
+    margin-top:12px;
+    text-align:center;
+    min-height:16px;
+}
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <h1>ASHDRIP ADMIN</h1>
+  <input id="email" type="email" placeholder="Email" autocomplete="username">
+  <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+  <button id="loginBtn" onclick="login()">Log In</button>
+  <p class="error" id="loginError"></p>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

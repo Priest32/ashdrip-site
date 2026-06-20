@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASHDRIP Admin</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:Arial;
+    padding:40px;
+}
+
+input,textarea,select{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    background:#1c1c1c;
+    color:white;
+    border:1px solid #333;
+    box-sizing:border-box;
+}
+
+button{
+    background:red;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    margin-right:10px;
+}
+
+button.btn-secondary{
+    background:#333;
+}
+
+button:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+}
+
+.save-status{
+    color:#7be08a;
+    font-size:13px;
+    margin-top:6px;
+    min-height:16px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto 0 50px auto;
+}
+
+.admin-topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    font-size:13px;
+    color:#aaa;
+}
+.admin-topbar button{
+    padding:8px 14px;
+    font-size:13px;
+}
+
+#imagePreview{
+    display:none;
+    max-width:200px;
+    margin-bottom:15px;
+    border:1px solid #333;
+}
+
+/* ---------- PRODUCT LIST ---------- */
+.admin-list-wrap{
+    max-width:700px;
+    margin:60px auto 0 auto;
+    border-top:1px solid #333;
+    padding-top:30px;
+}
+
+.admin-loading, .admin-empty, .admin-error{
+    color:#888;
+    text-align:center;
+    padding:20px 0;
+}
+
+.admin-error{ color:#ff6b6b; }
+
+.admin-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#1a1a1a;
+    border:1px solid #2a2a2a;
+    border-radius:6px;
+    padding:12px;
+    margin-bottom:10px;
+}
+
+.admin-thumb{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:4px;
+    background:#222;
+    flex-shrink:0;
+}
+
+.admin-row-info{
+    flex:1;
+    min-width:0;
+}
+
+.admin-row-name{
+    font-weight:bold;
+    margin:0 0 4px 0;
+}
+
+.admin-row-meta{
+    color:#aaa;
+    font-size:0.85rem;
+    margin:0 0 4px 0;
+}
+
+.admin-row-sizes{
+    color:#888;
+    font-size:0.8rem;
+    margin:0 0 6px 0;
+}
+
+.stock-badge{
+    display:inline-block;
+    font-size:0.75rem;
+    padding:2px 8px;
+    border-radius:10px;
+    background:#1f3a24;
+    color:#7be08a;
+}
+
+.stock-badge.sold-out{
+    background:#3a1f1f;
+    color:#ff8a8a;
+}
+
+.admin-row-actions{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    flex-shrink:0;
+}
+
+.admin-row-actions button{
+    margin:0;
+    padding:8px 14px;
+    font-size:0.85rem;
+}
+
+.btn-edit{
+    background:#2a4d8f;
+}
+
+.btn-delete{
+    background:#8f2a2a;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="admin-topbar">
+  <span id="userEmail"></span>
+  <button class="btn-secondary" onclick="logout()">Log Out</button>
+</div>
+
+<h1>ASHDRIP ADMIN</h1>
+<h3 id="formTitle">Add New Product</h3>
+
+<input id="name" placeholder="Product Name">
+
+<input id="price" type="number" placeholder="Price">
+
+<input id="category" placeholder="Category">
+
+<input
+    id="imageFile"
+    type="file"
+    accept="image/*">
+
+<img id="imagePreview" alt="Preview">
+
+<textarea id="description"
+placeholder="Description"></textarea>
+
+<input id="stock_s" type="number" placeholder="Stock S">
+<input id="stock_m" type="number" placeholder="Stock M">
+<input id="stock_l" type="number" placeholder="Stock L">
+<input id="stock_xl" type="number" placeholder="Stock XL">
+
+<button id="submitBtn" onclick="saveProduct()">Add Product</button>
+<button id="cancelBtn" class="btn-secondary" onclick="cancelEdit()" style="display:none">Cancel</button>
+<p id="saveStatus" class="save-status"></p>
+
+</div>
+
+<div class="admin-list-wrap">
+  <h3>Products</h3>
+  <input id="searchInput" placeholder="Search by name or category…">
+  <div id="productList"></div>
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
