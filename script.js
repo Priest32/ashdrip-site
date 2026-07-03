@@ -9,7 +9,7 @@
   Example: Nigerian number 0803 123 4567 -> "2348031234567"
 */
 
-const WHATSAPP_NUMBER = "2349032815786"; // <-- replace with real number
+const WHATSAPP_NUMBER = "2347070221241"; // <-- replace with real number
 
 let cart = []; // { id, name, price, size, qty, image }
 let activeProduct = null;
