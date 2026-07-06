@@ -241,7 +241,38 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("waContact").addEventListener("click", (e) => {
     e.preventDefault();
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+  });.
+  // ---- HERO CAROUSEL ----
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+let current = 0;
+let carouselTimer;
+
+function goToSlide(index) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = index;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+
+function nextSlide() {
+  goToSlide((current + 1) % slides.length);
+}
+
+function startCarousel() {
+  carouselTimer = setInterval(nextSlide, 5000);
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    clearInterval(carouselTimer);
+    goToSlide(parseInt(dot.dataset.index));
+    startCarousel(); // restart timer after manual click
   });
+});
+
+startCarousel();
 
   /* ---------- MOBILE NAV ---------- */
   const navToggle = document.getElementById("navToggle");
