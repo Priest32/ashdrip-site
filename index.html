@@ -32,11 +32,13 @@
       </button>
     </div>
   </div>
-  <nav class="nav-links-mobile" id="navLinksMobile">
-    <a href="#catalogue">Catalogue</a>
-    <a href="#mindset">The Mindset</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- Find this in your nav and add the new link -->
+<nav class="nav-links">
+  <a href="#catalogue">Catalogue</a>
+  <a href="#motion">In Motion</a>
+  <a href="#mindset">The Mindset</a>
+  <a href="#contact">Contact</a>
+</nav>
 </header>
 
 <!-- ============ HERO ============ -->
@@ -91,6 +93,16 @@
   </div>
 </section>
 
+<!-- ============ BACKGROUND VIDEO STRIP ============ -->
+<section class="video-strip">
+  <video class="video-strip-bg" autoplay muted loop playsinline preload="metadata">
+    <source src="YOUR_SUPABASE_VIDEO_URL" type="video/mp4">
+  </video>
+  <div class="video-strip-overlay">
+    <p class="video-strip-text">DISCIPLINE. GRIP. DESTINY.</p>
+  </div>
+</section>
+
 <!-- ============ CATALOGUE ============ -->
 <section class="catalogue" id="catalogue">
   <div class="section-head">
@@ -100,6 +112,22 @@
 
   <div class="product-grid" id="productGrid">
     <!-- Products are injected by JS from PRODUCTS array (placeholder for Google Sheet) -->
+  </div>
+</section>
+
+<!-- ============ ASHDRIP IN MOTION ============ -->
+<section class="motion-section" id="motion">
+  <div class="motion-inner">
+    <div class="section-head">
+      <h2>ASHDRIP IN MOTION</h2>
+      <p>See the standard in action.</p>
+    </div>
+    <div class="motion-video-wrap">
+      <video class="motion-video" controls preload="metadata" poster="images/hero-duo-basketball.png">
+        <source src="https://tigofkgyscgbladjrcqn.supabase.co/storage/v1/object/public/media/VID-20260706-WA0021.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 </section>
 
